@@ -12,8 +12,11 @@ import java.io.*;
 @Configuration
 @ComponentScan
 public class Configs {
+
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
+
 }
