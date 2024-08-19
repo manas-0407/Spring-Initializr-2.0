@@ -17,6 +17,9 @@ public class Base {
     @Autowired
     UpdateCommand updationCommand;
 
+    @Autowired
+    PomCommands pomCommands;
+
     @ShellMethod(key = "hello", value = "command to say hello")
     public String hello(
             @ShellOption(help = "Input name", defaultValue = "manas") String name,
@@ -69,7 +72,15 @@ public class Base {
         } catch (IOException e) {
             return "Error Occurred";
         }
+    }
 
+    @ShellMethod(key = "spring versionCheck" , value  = "Get info for latest update of dependencies")
+    public String versionCheck(
+            @ShellOption(value = "--update", defaultValue = "false") boolean update){
+        try{
+            return pomCommands.dependencyVersionCheck(update);
+        }catch (Exception e){
+            return "Error occurred";
+        }
     }
 }
-

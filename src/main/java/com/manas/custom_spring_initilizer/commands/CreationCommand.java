@@ -68,7 +68,7 @@ public class CreationCommand {
                     dependencies = mutable_dependency.substring(0, mutable_dependency.length() - 1);
 
                 }
-                System.out.println();
+
             }
 
 
